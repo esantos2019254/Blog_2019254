@@ -4,11 +4,15 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
+import postsRoutes from '../src/posts/publication.routes.js';
+import commentsRoutes from '../src/comments/comments.routes.js';
 
 class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
+    this.postsPath = '/blog/v1/posts';
+    this.commentsPath = '/blog/v1/comments';
 
     this.middlewares();
     this.conectDB();
@@ -20,7 +24,8 @@ class Server {
   }
 
   routes() {
-
+    this.app.use(this.postsPath, postsRoutes);
+    this.app.use(this.commentsPath, commentsRoutes);
   }
 
   middlewares() {
