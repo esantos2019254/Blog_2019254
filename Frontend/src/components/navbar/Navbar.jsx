@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 export const Navbar = () => {
     return (
-        <div className="bg-yellow-200">
-            <div className="navbar bg-base-100">
+        <div>
+            <div className="navbar bg-custom-color"> {/* Cambiar aquí */}
                 <div className="flex-1 mx-10">
                     <Link className="btn btn-ghost text-xl font-bold">My Blog</Link>
                 </div>
