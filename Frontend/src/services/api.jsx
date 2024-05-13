@@ -15,3 +15,25 @@ export const getPosts = async () => {
         }
     }
 }
+
+export const addPost = async (data) => {
+    try{
+        return await apiClient.post('/posts/create', data)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+export const addComment = async (data) => {
+    try{
+        return await apiClient.post('/comments/create', data)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
